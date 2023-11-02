@@ -5,26 +5,31 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
-      message: "Hello Vue!",
+      message: "Email selezionate!",
       email: "",
       emailsArray: [],
     };
   },
   methods: {
     fetchEmail() {
-      axios
+      for (let i = 0; i < 10; i++) {
+        axios
         .get("https://flynn.boolean.careers/exercises/api/random/mail")
         .then((res) => {
+          const currentEmail = res.data.response;
+          this.emailsArray.push(currentEmail);
+          console.log(currentEmail);
 
-          for (let i = 0; i < 10; i++) {
-            const currentEmail = res.data.response;
-            this.emailsArray.push(currentEmail);
-          }
-
-          console.log(this.emailsArray);
+          //   console.log(this.emailsArray);
           //  Questa è la risposta del server
         });
+      }
     },
+    // displayEmails() {
+    //     setTimeout(() => {
+    //         this.fetchEmail();
+    //     }, 6000);
+    // }
   },
   created() {
     this.fetchEmail();
@@ -40,4 +45,3 @@ createApp({
 //     console.log(this.email);
 //     //  Questa è la risposta del server
 //   });
-
