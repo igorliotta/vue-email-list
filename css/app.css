@@ -19,6 +19,17 @@
     margin: 0 auto;
 }
 
+.container {
+    background-color: lightseagreen;
+    padding: 20px;
+    max-width: 800px;
+    height: 550px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .list {
     list-style: none;
     max-width: 400px;
