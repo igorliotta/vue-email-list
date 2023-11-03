@@ -5,21 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link rel="stylesheet" href="./css/app.css">
+    <script
+      src="https://kit.fontawesome.com/aa4f9fed4f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/app.css" />
     <title>Vue Email List</title>
   </head>
   <body>
     <div id="app">
-     <section class="section">
+      <section class="section">
         <h1 class="title">{{ message }}</h1>
-     </section>
-     <div class="container">
-        <ul
-        class="list"
-         v-show="emailsArray.length === 10">
-          <li class="list-item" v-for="(email, i) in emailsArray" :key="i">{{ email }}</li>
+      </section>
+      <div class="container">
+        <ul class="list" v-if="emailsArray.length === 10">
+          <li class="list-item" v-for="(email, i) in emailsArray" :key="i">
+            {{ email }}
+          </li>
         </ul>
-     </div>
+        <div v-else="emailsArray.length !== 10">
+          <span>Le email si stanno caricando </span>
+          <i class="fa-solid fa-spinner icon"></i>
+        </div>
+      </div>
     </div>
 
     <script src="./js/app.js"></script>
